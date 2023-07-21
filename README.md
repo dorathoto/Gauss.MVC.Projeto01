@@ -23,6 +23,7 @@ Projeto inicial para ensinar MVC com C#
  - MVC
  - ASP.NET 7
  - C# 11
+ - GIT / GITHUB
 
 **Aulas necessárias:**
 
