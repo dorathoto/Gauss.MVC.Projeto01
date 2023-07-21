@@ -44,7 +44,6 @@ namespace Gauss.MVC.Projeto01.Controllers
             _context.Livros.AddRange(livros);
             await _context.SaveChangesAsync();
 
-
             return View(livros);
         }
 
