@@ -21,7 +21,7 @@ namespace Gauss.MVC.Projeto01.Controllers
             //segundo momento
             var autor = new Autor
             {
-              //  AutorId = 1,
+              //  AutorId = 1, //desabilitado para o migration
                 Name = "Leonardo Doratiotto"
             };
             _context.Autores.Add(autor);
