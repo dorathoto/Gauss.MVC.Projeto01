@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Gauss.MVC.Projeto01.Models.Livro>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,3 +7,27 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>ISBN13</th>
+            <th>Data</th>
+            <th>Autor</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.LivroId</td>
+                <td>@item.Titulo</td>
+                <td>@item.ISBN13</td>
+                <td>@item.DataCadastro</td>
+                <td>@item.Autor.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>

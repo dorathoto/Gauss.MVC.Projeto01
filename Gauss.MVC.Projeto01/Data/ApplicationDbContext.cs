@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Gauss.MVC.Projeto01.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gauss.MVC.Projeto01.Data
@@ -9,5 +10,8 @@ namespace Gauss.MVC.Projeto01.Data
             : base(options)
         {
         }
+
+        public DbSet<Livro> Livros { get; set; }
+        public DbSet<Autor> Autores { get; set; }
     }
 }
