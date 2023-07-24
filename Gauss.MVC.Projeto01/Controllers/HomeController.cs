@@ -18,13 +18,13 @@ namespace Gauss.MVC.Projeto01.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //segundo momento
+            //criando Classe autor
             var autor = new Autor
             {
               //  AutorId = 1, //desabilitado para o migration
                 Name = "Leonardo Doratiotto"
             };
-            _context.Autores.Add(autor);
+           // _context.Autores.Add(autor);
 
             var livros = new List<Livro>();
 
@@ -35,14 +35,15 @@ namespace Gauss.MVC.Projeto01.Controllers
                     Titulo = $"Livro {i}",
                     ISBN13 = $"ISBN13 {i}",
                     DataCadastro = DateTime.Now.AddDays(i),
-                    AutorId = autor.AutorId, //segundo momento
-                    Autor = autor, //segundo momento
+                    AutorId = autor.AutorId, //relação do id
+                    Autor = autor, //relação com o objeto autor
                     LivroId = Guid.NewGuid()
                 });
             }
 
-            _context.Livros.AddRange(livros);
-            await _context.SaveChangesAsync();
+
+            //_context.Livros.AddRange(livros);
+            // await _context.SaveChangesAsync();
 
             return View(livros);
         }
@@ -52,10 +53,6 @@ namespace Gauss.MVC.Projeto01.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+
     }
 }
