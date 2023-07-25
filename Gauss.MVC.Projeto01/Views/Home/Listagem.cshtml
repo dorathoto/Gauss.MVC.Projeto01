@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Gauss.MVC.Projeto01.Models.Livro>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Listagem</h1>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>ISBN13</th>
+            <th>Data</th>
+            <th>Autor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.LivroId</td>
+                <td>@item.Titulo</td>
+                <td>@item.ISBN13</td>
+                <td>@item.DataCadastro</td>
+                <td>item.Autor.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>

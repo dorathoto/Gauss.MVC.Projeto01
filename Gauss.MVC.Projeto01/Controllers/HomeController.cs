@@ -1,6 +1,7 @@
 ﻿using Gauss.MVC.Projeto01.Data;
 using Gauss.MVC.Projeto01.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Gauss.MVC.Projeto01.Controllers
@@ -8,7 +9,7 @@ namespace Gauss.MVC.Projeto01.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ApplicationDbContext _context; 
+        private readonly ApplicationDbContext _context;
 
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
@@ -21,10 +22,10 @@ namespace Gauss.MVC.Projeto01.Controllers
             //criando Classe autor
             var autor = new Autor
             {
-              //  AutorId = 1, //desabilitado para o migration
+                //  AutorId = 1, //desabilitado para o migration
                 Name = "Leonardo Doratiotto"
             };
-           // _context.Autores.Add(autor);
+            _context.Autores.Add(autor);
 
             var livros = new List<Livro>();
 
@@ -42,15 +43,19 @@ namespace Gauss.MVC.Projeto01.Controllers
             }
 
 
-            //_context.Livros.AddRange(livros);
-            // await _context.SaveChangesAsync();
+            _context.Livros.AddRange(livros);
+          //  await _context.SaveChangesAsync(); //Assincrono - explicar (modificar no começo da action)
+            //_context.SaveChanges();
 
             return View(livros);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Listagem()
         {
-            return View();
+            var teste1 = _context.Livros.FirstOrDefault();
+            var listaLivros = _context.Livros.ToList();
+            //var listaLivros = _context.Livros.Include(x => x.Autor).ToList();
+            return View(listaLivros);
         }
 
 

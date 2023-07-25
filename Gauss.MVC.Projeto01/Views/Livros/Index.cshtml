@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Gauss.MVC.Projeto01.Models.Livro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISBN13)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Autor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISBN13)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autor.AutorId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.LivroId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.LivroId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.LivroId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
