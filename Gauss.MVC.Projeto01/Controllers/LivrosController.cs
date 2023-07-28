@@ -48,7 +48,7 @@ namespace Gauss.MVC.Projeto01.Controllers
         // GET: Livros/Create
         public IActionResult Create()
         {
-            ViewData["AutorId"] = new SelectList(_context.Autores, "AutorId", "AutorId");
+            ViewData["AutorId"] = new SelectList(_context.Autores, "AutorId", "Name");
             return View();
         }
 

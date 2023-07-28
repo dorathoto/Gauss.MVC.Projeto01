@@ -10,6 +10,7 @@ namespace Gauss.MVC.Projeto01.Models
 
         [MaxLength(110, ErrorMessage = "O Máximo de caracteres é {0}")]
         [Display(Name = "Título")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public string Titulo { get; set; }
 
         [MaxLength(13, ErrorMessage ="Oh mané só 13 caracteres")]
