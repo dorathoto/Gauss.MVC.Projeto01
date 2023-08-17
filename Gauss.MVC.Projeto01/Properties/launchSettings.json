@@ -7,15 +7,6 @@
       "commandLineArgs": "watch run",
       "launchBrowser": true
     },
-    "http": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5207"
-    },
     "https": {
       "commandName": "Project",
       "launchBrowser": true,
